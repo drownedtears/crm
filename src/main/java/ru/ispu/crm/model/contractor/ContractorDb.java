@@ -14,7 +14,11 @@ public class ContractorDb {
     @Id
     private UUID id;
 
-    @Column(name = "contractor_type")
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "type")
+    @Enumerated(EnumType.STRING)
     private ContractorType type;
 
     @OneToMany(mappedBy = "contractor")

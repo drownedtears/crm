@@ -1,6 +1,7 @@
 package ru.ispu.crm.dao.employee;
 
 import jakarta.annotation.Nullable;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,5 +13,5 @@ import java.util.UUID;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<EmployeeDb, UUID> {
-    List<EmployeeDb> findAll(@Nullable Specification<EmployeeDb> specification, Pageable pageable);
+    Page<EmployeeDb> findAllByActive(Pageable pageable, Boolean active);
 }

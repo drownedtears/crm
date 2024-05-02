@@ -10,4 +10,6 @@ public class EmployeeFilter {
     private Integer count;
 
     private Integer page;
+
+    private Boolean active;
 }

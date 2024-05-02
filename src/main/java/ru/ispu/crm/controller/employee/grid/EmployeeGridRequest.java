@@ -7,4 +7,6 @@ public class EmployeeGridRequest {
     private Integer count;
 
     private Integer page;
+
+    private Boolean active;
 }

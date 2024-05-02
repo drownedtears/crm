@@ -23,4 +23,7 @@ public class EmployeeDb {
 
     @Column(name = "patronymic")
     private String patronymic;
+
+    @Column(name = "active")
+    private Boolean active;
 }
