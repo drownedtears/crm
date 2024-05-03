@@ -25,7 +25,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         Page<EmployeeDb> employeesPage = employeeRepository.findAllByActive(
                 PageRequest.of(employeeFilter.getPage(), employeeFilter.getCount()),
                 employeeFilter.getActive());
-        return new PageImpl<>(employeesPage.toList().stream().map(this::toEmployee).toList(), employeesPage.getTotalPages())
+        return new PageImpl<>(employeesPage.toList().stream().map(this::toEmployee).toList(), employeesPage.getTotalPages());
     }
 
     private Employee toEmployee(EmployeeDb employeeDb) {
