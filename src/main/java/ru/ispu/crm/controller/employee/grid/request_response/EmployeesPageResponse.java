@@ -1,4 +1,4 @@
-package ru.ispu.crm.controller.employee.grid;
+package ru.ispu.crm.controller.employee.grid.request_response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

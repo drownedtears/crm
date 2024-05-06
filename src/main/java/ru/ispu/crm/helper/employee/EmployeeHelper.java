@@ -1,17 +1,13 @@
 package ru.ispu.crm.helper.employee;
 
-import ru.ispu.crm.common.PageImpl;
 import ru.ispu.crm.common.employee.AddEditEmployee;
-import ru.ispu.crm.common.employee.Employee;
 import ru.ispu.crm.common.employee.EmployeeFilter;
-import ru.ispu.crm.controller.employee.grid.EmployeesPageResponse;
-import ru.ispu.crm.controller.employee.grid.EmployeeGridRequest;
+import ru.ispu.crm.controller.employee.grid.request_response.EmployeesPageResponse;
+import ru.ispu.crm.controller.employee.grid.request_response.EmployeeGridRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.ispu.crm.controller.employee.window.AddEditEmployeeRequest;
+import ru.ispu.crm.controller.employee.window.request_response.AddEditEmployeeRequest;
 import ru.ispu.crm.service.employee.EmployeeService;
-
-import java.util.logging.Logger;
 
 @Component
 public class EmployeeHelper {
@@ -24,13 +20,12 @@ public class EmployeeHelper {
     }
 
     public EmployeesPageResponse getEmployees(EmployeeGridRequest request) {
-        PageImpl<Employee> employeesPage = employeeService.getEmployees(toEmployeeFilter(request));
+        var employeesPage = employeeService.getEmployees(toEmployeeFilter(request));
         return new EmployeesPageResponse(employeesPage.getElements(), employeesPage.getTotalPages());
     }
 
     public void addEditEmployee(AddEditEmployeeRequest request) {
-        Logger.getAnonymousLogger().info(request.getPatronymic() + "aaaaaaaaaaaaaaaa");
-
+        employeeService.addEditEmployee(toAddEditEmployee(request));
     }
 
     private EmployeeFilter toEmployeeFilter(EmployeeGridRequest request) {
@@ -38,6 +33,6 @@ public class EmployeeHelper {
     }
 
     private AddEditEmployee toAddEditEmployee(AddEditEmployeeRequest request) {
-        return new
+        return new AddEditEmployee(request);
     }
 }
