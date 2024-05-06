@@ -19,7 +19,7 @@ public class ContractorDb {
 
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
-    private ContractorType type;
+    private ContractorTypeDb type;
 
     @OneToMany(mappedBy = "contractor")
     private List<ContactDb> contactList = new ArrayList<>();

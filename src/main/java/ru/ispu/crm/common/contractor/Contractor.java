@@ -1,4 +1,4 @@
-package ru.ispu.crm.common.employee;
+package ru.ispu.crm.common.contractor;
 
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Data
 @AllArgsConstructor
-public class Employee {
+public class Contractor {
     @NotNull
     private UUID id;
 
@@ -17,10 +17,5 @@ public class Employee {
     private String name;
 
     @NotNull
-    private String surname;
-
-    private String patronymic;
-
-    @NotNull
-    private Boolean active;
+    private ContractorType type;
 }

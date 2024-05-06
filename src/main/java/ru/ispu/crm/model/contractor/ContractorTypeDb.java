@@ -1,6 +1,6 @@
 package ru.ispu.crm.model.contractor;
 
-public enum ContractorType {
+public enum ContractorTypeDb {
     PERSON,
     PHYSICAL,
     ENTERPRISE

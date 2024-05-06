@@ -22,7 +22,7 @@ public class EmployeePostWindowController {
 
     @PostMapping("/add_edit")
     public void addEditEmployeePost(@RequestBody AddEditEmployeePostRequest request) {
-        
+        postHelper.addEditEmployeePost(request);
     }
 
     @GetMapping("/employee/{employeeId}")
