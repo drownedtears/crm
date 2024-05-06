@@ -2,12 +2,12 @@ package ru.ispu.crm.controller.employee.window;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ru.ispu.crm.common.employee.Employee;
 import ru.ispu.crm.controller.employee.window.request_response.AddEditEmployeeRequest;
 import ru.ispu.crm.helper.employee.EmployeeHelper;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/employee_window")
@@ -23,5 +23,10 @@ public class EmployeeWindowController {
     @PostMapping("/add_edit")
     public void addEditEmployee(@Valid @RequestBody AddEditEmployeeRequest request) {
         employeeHelper.addEditEmployee(request);
+    }
+
+    @GetMapping("/{employeeId}")
+    public Employee getEmployee(@PathVariable("employeeId") UUID employeeId) {
+        return employeeHelper.getEmployee(employeeId);
     }
 }

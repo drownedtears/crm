@@ -2,6 +2,7 @@ package ru.ispu.crm.model.contractor;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import ru.ispu.crm.model.contractor.contact.ContactDb;
 
 import java.util.ArrayList;
 import java.util.List;

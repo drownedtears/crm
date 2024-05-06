@@ -1,6 +1,7 @@
 package ru.ispu.crm.helper.employee;
 
 import ru.ispu.crm.common.employee.AddEditEmployee;
+import ru.ispu.crm.common.employee.Employee;
 import ru.ispu.crm.common.employee.EmployeeFilter;
 import ru.ispu.crm.controller.employee.grid.request_response.EmployeesPageResponse;
 import ru.ispu.crm.controller.employee.grid.request_response.EmployeeGridRequest;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.ispu.crm.controller.employee.window.request_response.AddEditEmployeeRequest;
 import ru.ispu.crm.service.employee.EmployeeService;
+
+import java.util.UUID;
 
 @Component
 public class EmployeeHelper {
@@ -26,6 +29,10 @@ public class EmployeeHelper {
 
     public void addEditEmployee(AddEditEmployeeRequest request) {
         employeeService.addEditEmployee(toAddEditEmployee(request));
+    }
+
+    public Employee getEmployee(UUID employeeId) {
+        return employeeService.getEmployee(employeeId);
     }
 
     private EmployeeFilter toEmployeeFilter(EmployeeGridRequest request) {

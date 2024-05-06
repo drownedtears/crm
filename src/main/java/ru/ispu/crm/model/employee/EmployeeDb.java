@@ -1,9 +1,7 @@
 package ru.ispu.crm.model.employee;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.ispu.crm.model.contractor.ContactDb;
 
 import java.util.ArrayList;
 import java.util.List;

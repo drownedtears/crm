@@ -1,7 +1,8 @@
-package ru.ispu.crm.model.contractor;
+package ru.ispu.crm.model.contractor.contact;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import ru.ispu.crm.model.contractor.ContractorDb;
 
 import java.util.UUID;
 
@@ -12,9 +13,9 @@ public class ContactDb {
     @Id
     private UUID id;
 
-    @Column(name = "contact_type")
+    @Column(name = "type")
     @Enumerated(EnumType.STRING)
-    private ContactType contactType;
+    private ContactTypeDb type;
 
     @Column(name = "value")
     private String value;

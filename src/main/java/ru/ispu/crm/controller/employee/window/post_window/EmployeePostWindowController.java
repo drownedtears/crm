@@ -1,5 +1,6 @@
 package ru.ispu.crm.controller.employee.window.post_window;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.ispu.crm.controller.employee.window.post_window.request_response.AddEditEmployeePostRequest;
@@ -21,11 +22,11 @@ public class EmployeePostWindowController {
     }
 
     @PostMapping("/add_edit")
-    public void addEditEmployeePost(@RequestBody AddEditEmployeePostRequest request) {
+    public void addEditEmployeePost(@Valid @RequestBody AddEditEmployeePostRequest request) {
         postHelper.addEditEmployeePost(request);
     }
 
-    @GetMapping("/employee/{employeeId}")
+    @GetMapping("/{employeeId}")
     public EmployeePostsResponse getEmployeePosts(@PathVariable UUID employeeId) {
         return postHelper.getEmployeePosts(employeeId);
     }

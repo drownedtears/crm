@@ -8,9 +8,12 @@ import ru.ispu.crm.common.employee.EmployeeFilter;
 import ru.ispu.crm.model.employee.EmployeeDb;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface EmployeeService {
     PageImpl<Employee> getEmployees(EmployeeFilter employeeFilter);
 
     void addEditEmployee(AddEditEmployee addEditEmployee);
+
+    Employee getEmployee(UUID employeeId);
 }

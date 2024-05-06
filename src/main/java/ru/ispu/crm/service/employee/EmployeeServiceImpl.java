@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import ru.ispu.crm.dao.employee.EmployeeRepository;
 import ru.ispu.crm.model.employee.EmployeeDb;
 
+import java.util.UUID;
 import java.util.logging.Logger;
 
 @Service
@@ -44,6 +45,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setPatronymic(addEditEmployee.getPatronymic());
         employee.setActive(addEditEmployee.getActive());
         employeeRepository.save(employee);
+    }
+
+    @Override
+    public Employee getEmployee(UUID employeeId) {
+        return toEmployee(employeeRepository.findById(employeeId).orElseThrow());
     }
 
     private Employee toEmployee(EmployeeDb employeeDb) {
