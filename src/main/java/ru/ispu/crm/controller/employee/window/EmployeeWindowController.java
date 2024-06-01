@@ -7,10 +7,14 @@ import ru.ispu.crm.common.employee.Employee;
 import ru.ispu.crm.controller.employee.window.request_response.AddEditEmployeeRequest;
 import ru.ispu.crm.helper.employee.EmployeeHelper;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/employee_window")
+@CrossOrigin
 public class EmployeeWindowController {
 
     private final EmployeeHelper employeeHelper;
@@ -26,7 +30,7 @@ public class EmployeeWindowController {
     }
 
     @GetMapping("/{employeeId}")
-    public Employee getEmployee(@PathVariable("employeeId") UUID employeeId) {
-        return employeeHelper.getEmployee(employeeId);
+    public Employee getEmployee(@PathVariable("employeeId") String employeeId) {
+        return employeeHelper.getEmployee(UUID.fromString(employeeId));
     }
 }

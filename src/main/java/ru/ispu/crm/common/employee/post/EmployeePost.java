@@ -3,6 +3,7 @@ package ru.ispu.crm.common.employee.post;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
@@ -17,4 +18,6 @@ public class EmployeePost {
     private Boolean main;
 
     private PostSchedule schedule;
+
+    private Long firstWorkDay;
 }

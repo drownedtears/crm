@@ -23,7 +23,7 @@ public class ContractorHelper {
 
     public ContractorsPageResponse getContractors(ContractorGridRequest request) {
         var contractorsPage =  contractorService.getContractors(toContractorFilter(request));
-        return new ContractorsPageResponse(contractorsPage.getElements(), contractorsPage.getTotalPages());
+        return new ContractorsPageResponse(contractorsPage.getElements(), contractorsPage.getTotalElements());
     }
 
     public void addEditContractor(AddEditContractorRequest request) {
@@ -39,6 +39,6 @@ public class ContractorHelper {
     }
 
     private ContractorFilter toContractorFilter(ContractorGridRequest request) {
-        return new ContractorFilter(request.getCount(), request.getPage());
+        return new ContractorFilter(request.getCount(), request.getPage(), request.getType());
     }
 }

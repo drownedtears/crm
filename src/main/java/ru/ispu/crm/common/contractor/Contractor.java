@@ -2,7 +2,7 @@ package ru.ispu.crm.common.contractor;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.ispu.crm.common.contractor.contact.Contact;
+import ru.ispu.crm.common.contact.Contact;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,5 +17,5 @@ public class Contractor {
 
     private ContractorType type;
 
-    private List<Contact> contactList = new ArrayList<>();
+    private List<Contact> contactList;
 }

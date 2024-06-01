@@ -1,11 +1,7 @@
 package ru.ispu.crm.service.employee;
 
-import org.springframework.data.domain.Page;
 import ru.ispu.crm.common.PageImpl;
-import ru.ispu.crm.common.employee.AddEditEmployee;
-import ru.ispu.crm.common.employee.Employee;
-import ru.ispu.crm.common.employee.EmployeeFilter;
-import ru.ispu.crm.model.employee.EmployeeDb;
+import ru.ispu.crm.common.employee.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,4 +12,8 @@ public interface EmployeeService {
     void addEditEmployee(AddEditEmployee addEditEmployee);
 
     Employee getEmployee(UUID employeeId);
+
+    void fireCancelFireEmployee(FireCancelFireEmployee fireCancelFireEmployee);
+
+    List<EmployeePageable> getEmployeesPageable();
 }

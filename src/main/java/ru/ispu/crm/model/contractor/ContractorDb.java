@@ -2,7 +2,7 @@ package ru.ispu.crm.model.contractor;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import ru.ispu.crm.model.contractor.contact.ContactDb;
+import ru.ispu.crm.model.contractor.contact.ContractorContactDb;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,7 @@ import java.util.UUID;
 @Data
 public class ContractorDb {
     @Id
+    @GeneratedValue(generator = "UUID")
     private UUID id;
 
     @Column(name = "name")
@@ -23,5 +24,5 @@ public class ContractorDb {
     private ContractorTypeDb type;
 
     @OneToMany(mappedBy = "contractor")
-    private List<ContactDb> contactList = new ArrayList<>();
+    private List<ContractorContactDb> contactList = new ArrayList<>();
 }

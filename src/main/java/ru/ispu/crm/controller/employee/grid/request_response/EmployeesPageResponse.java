@@ -11,5 +11,5 @@ import java.util.List;
 public class EmployeesPageResponse {
     private List<Employee> employees;
 
-    private Integer totalPages;
+    private Integer totalElements;
 }

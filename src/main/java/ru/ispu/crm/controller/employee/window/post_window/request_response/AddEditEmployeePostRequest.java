@@ -16,4 +16,6 @@ public class AddEditEmployeePostRequest {
     private Boolean main;
 
     private String schedule;
+
+    private Long firstWorkDay;
 }

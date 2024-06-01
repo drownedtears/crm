@@ -7,12 +7,12 @@ import ru.ispu.crm.common.contractor.AddEditContractor;
 import ru.ispu.crm.common.contractor.Contractor;
 import ru.ispu.crm.common.contractor.ContractorFilter;
 import ru.ispu.crm.common.contractor.ContractorType;
-import ru.ispu.crm.common.contractor.contact.Contact;
-import ru.ispu.crm.common.contractor.contact.ContactType;
+import ru.ispu.crm.common.contact.Contact;
+import ru.ispu.crm.common.contact.ContactType;
 import ru.ispu.crm.dao.contractor.ContractorRepository;
 import ru.ispu.crm.model.contractor.ContractorDb;
 import ru.ispu.crm.model.contractor.ContractorTypeDb;
-import ru.ispu.crm.model.contractor.contact.ContactDb;
+import ru.ispu.crm.model.contractor.contact.ContractorContactDb;
 
 import java.util.UUID;
 
@@ -27,8 +27,9 @@ public class ContractorServiceImpl implements ContractorService {
 
     @Override
     public PageImpl<Contractor> getContractors(ContractorFilter contractorFilter) {
-        var contractorPage = contractorRepository.findAll(PageRequest.of(contractorFilter.getPage(), contractorFilter.getCount()));
-        return new PageImpl<>(contractorPage.toList().stream().map(this::toContractor).toList(), contractorPage.getTotalPages());
+        var contractorPage = contractorRepository.findAllByType(PageRequest.of(contractorFilter.getPage(), contractorFilter.getCount()),
+                ContractorTypeDb.valueOf(contractorFilter.getType()));
+        return new PageImpl<>(contractorPage.toList().stream().map(this::toContractor).toList(), contractorPage.getTotalPages() * contractorFilter.getCount());
     }
 
     @Override
@@ -56,10 +57,10 @@ public class ContractorServiceImpl implements ContractorService {
                 contractorDb.getContactList().stream().map(this::toContact).toList());
     }
 
-    private Contact toContact(ContactDb contactDb) {
-        return new Contact(contactDb.getId(),
-                ContactType.valueOf(contactDb.getType().toString()),
-                contactDb.getValue(),
-                contactDb.isMain());
+    private Contact toContact(ContractorContactDb contractorContactDb) {
+        return new Contact(contractorContactDb.getId(),
+                ContactType.valueOf(contractorContactDb.getType().toString()),
+                contractorContactDb.getValue(),
+                contractorContactDb.isMain());
     }
 }

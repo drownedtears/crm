@@ -7,4 +7,6 @@ public class ContractorGridRequest {
     private Integer count;
 
     private Integer page;
+
+    private String type;
 }

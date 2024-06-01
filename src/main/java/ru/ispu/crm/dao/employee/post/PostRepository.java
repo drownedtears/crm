@@ -8,4 +8,6 @@ import java.util.UUID;
 
 public interface PostRepository extends JpaRepository<PostDb, UUID> {
     List<PostDb> findAllByEmployee_Id(UUID employeeId);
+
+    PostDb findByEmployee_IdAndMainIsTrue(UUID employeeId);
 }

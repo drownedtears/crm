@@ -9,4 +9,6 @@ public class ContractorFilter {
     private Integer count;
 
     private Integer page;
+
+    private String type;
 }

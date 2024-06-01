@@ -11,6 +11,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/contractor_window")
+@CrossOrigin
 public class ContractorWindowController {
 
     private final ContractorHelper contractorHelper;
@@ -21,7 +22,7 @@ public class ContractorWindowController {
     }
 
     @PostMapping("/add_edit")
-    public void addEditContractor(@Valid @RequestBody AddEditContractorRequest request) {
+    public void addEditContractor(@RequestBody AddEditContractorRequest request) {
         contractorHelper.addEditContractor(request);
     }
 

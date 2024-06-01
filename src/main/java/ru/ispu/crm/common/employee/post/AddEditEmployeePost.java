@@ -24,11 +24,15 @@ public class AddEditEmployeePost {
     @NotNull
     private PostSchedule schedule;
 
+    @NotNull
+    private Long firstWorkDay;
+
     public AddEditEmployeePost(AddEditEmployeePostRequest request) {
         this.id = request.getId();
         this.employeeId = request.getEmployeeId();
         this.name = request.getName();
         this.main = request.getMain();
         this.schedule = PostSchedule.valueOf(request.getSchedule());
+        this.firstWorkDay = request.getFirstWorkDay();
     }
 }

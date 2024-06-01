@@ -2,15 +2,17 @@ package ru.ispu.crm.model.contractor.contact;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import ru.ispu.crm.model.common.ContactTypeDb;
 import ru.ispu.crm.model.contractor.ContractorDb;
 
 import java.util.UUID;
 
 @Entity
-@Table(name = "contact")
+@Table(name = "contractor_contact")
 @Data
-public class ContactDb {
+public class ContractorContactDb {
     @Id
+    @GeneratedValue(generator = "UUID")
     private UUID id;
 
     @Column(name = "type")

@@ -1,8 +1,7 @@
-package ru.ispu.crm.common.contractor.contact;
+package ru.ispu.crm.common.contact;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.ispu.crm.model.contractor.contact.ContactTypeDb;
 
 import java.util.UUID;
 
