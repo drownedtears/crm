@@ -2,13 +2,13 @@ package ru.ispu.crm.common.employee;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import ru.ispu.crm.common.contact.Contact;
+import lombok.NoArgsConstructor;
 import ru.ispu.crm.controller.employee.window.request_response.AddEditEmployeeRequest;
 
-import java.util.List;
 import java.util.UUID;
 
 @Data
+@NoArgsConstructor
 public class AddEditEmployee {
     private UUID id;
 
